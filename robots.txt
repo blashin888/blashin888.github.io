@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-# please crawl carefully
+# Quiet place.
+# Please crawl carefully.
