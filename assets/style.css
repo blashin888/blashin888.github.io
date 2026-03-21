@@ -40,20 +40,26 @@ body {
 main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 56px 20px 72px;
+  padding: 72px 24px 88px;
 }
 
-p {
-  margin: 16px 0;
+pre {
+  margin: 0 0 18px;
 }
 
 .small {
-  color: #7a7a7a;
+  color: #6e6e6e;
 }
 
 .main-image {
   width: 100%;
   height: auto;
   display: block;
-  margin: 36px 0 28px;
+  margin: 44px 0 32px;
+}
+
+.image-note {
+  margin: 0 0 20px;
+  color: #a8a8a8;
+  font-size: 0.95em;
 }
