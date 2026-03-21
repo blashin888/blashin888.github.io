@@ -31,3 +31,29 @@ a:hover{
   opacity:.85;
   font-size:.95em;
 }
+
+body {
+  background: #000;
+  color: #c8c8c8;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 20px 72px;
+}
+
+p {
+  margin: 16px 0;
+}
+
+.small {
+  color: #7a7a7a;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 36px 0 28px;
+}
