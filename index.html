@@ -39,5 +39,16 @@ sometimes not.
     </pre>
 
   </main>
+  
+<script>
+fetch("https://voidtrace.quietvoid.workers.dev", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    room: "index"
+  })
+}).catch(() => {});
+</script> 
+  
 </body>
 </html>
