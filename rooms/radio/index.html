@@ -39,5 +39,16 @@
 <a href="/">home</a>
 </p>
   </main>
+
+  <script>
+fetch("https://voidtrace.quietvoid.workers.dev", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    room: "radio"
+  })
+}).catch(() => {});
+</script>
+  
 </body>
 </html>
