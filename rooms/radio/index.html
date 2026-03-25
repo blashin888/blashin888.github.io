@@ -40,7 +40,10 @@
 </p>
   </main>
 
-  <script>
+ <pre id="log"></pre>
+
+<script>
+/* ① 記録（今まで通り） */
 fetch("https://voidtrace.quietvoid.workers.dev", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -48,6 +51,14 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
     room: "radio"
   })
 }).catch(() => {});
+
+/* ② 表示（追加） */
+fetch("https://voidtrace.quietvoid.workers.dev/?room=radio")
+  .then(res => res.json())
+  .then(data => {
+    const el = document.getElementById("log");
+    el.textContent = JSON.stringify(data, null, 2);
+  });
 </script>
   
 </body>
