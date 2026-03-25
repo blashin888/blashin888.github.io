@@ -56,9 +56,12 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
 fetch("https://voidtrace.quietvoid.workers.dev/?room=radio")
   .then(res => res.json())
   .then(data => {
-    const el = document.getElementById("log");
-    el.textContent = JSON.stringify(data, null, 2);
-  });
+   const el = document.getElementById("log");
+
+el.textContent = data.map(item => {
+  return new Date(item.created_at + "Z")
+  .toISOString()
+  .slice(11, 19);
 </script>
   
 </body>
