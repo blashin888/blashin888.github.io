@@ -84,7 +84,7 @@ pre {
    room - radio time display 
    ========================================================= */
 
-.log {
+#log {
   position: fixed;
   right: 20px;
   top: 20px;
