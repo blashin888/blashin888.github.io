@@ -60,9 +60,13 @@ fetch("https://voidtrace.quietvoid.workers.dev/?room=radio")
     const t = new Date(item.created_at + "Z")
       .toISOString()
       .slice(11, 19);
-
-    return `<div style="opacity:${1 - i * 0.15}">${t}</div>`;
+    
+    return `<div style="
+  opacity:${0.8 - i * 0.1};
+  letter-spacing:1px;
+">${t}</div>`;
   })
+      
   .join("");
   })
   .catch(() => {});
