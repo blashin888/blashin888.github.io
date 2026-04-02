@@ -72,7 +72,7 @@ pre {
 .main-image {
   max-width: 720px;
   width: 100%;
-  margin: 48px auto;
+  margin: 72px auto 48px;  /* 上に空間 */
   opacity: 0.95;
 }
 
