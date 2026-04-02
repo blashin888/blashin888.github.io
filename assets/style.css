@@ -70,10 +70,10 @@ pre {
    ========================================================= */
 
 .main-image {
+  max-width: 720px;
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 44px 0 32px;
+  margin: 48px auto;
+  opacity: 0.95;
 }
 
 .image-note {
