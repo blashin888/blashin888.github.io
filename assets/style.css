@@ -4,10 +4,10 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   background: #000;
-  color: #ccc;
+  color: #c8c8c8;
 }
 
 /* =========================================================
@@ -16,17 +16,8 @@ body {
    ========================================================= */
 
 body {
-  background: #000;
-  color: #c8c8c8;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-
-  /* Layout note:
-     This centers short pages nicely, but can feel odd on long/image-heavy pages.
-     If Rooms or image pages start drifting, check these first. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 main {
@@ -40,7 +31,8 @@ main {
    LINKS
    ========================================================= */
 
-a {
+a,
+a:visited {
   color: #bbb;
   text-decoration: none;
 }
@@ -62,6 +54,7 @@ a:hover {
 
 pre {
   margin: 0 0 18px;
+  white-space: pre-wrap;
 }
 
 /* =========================================================
@@ -70,9 +63,11 @@ pre {
    ========================================================= */
 
 .main-image {
+  display: block;
   max-width: 720px;
   width: 100%;
-  margin: 72px auto 48px;  /* 上に空間 */
+  height: auto;
+  margin: 72px auto 48px;
   opacity: 0.95;
 }
 
@@ -83,7 +78,7 @@ pre {
 }
 
 /* =========================================================
-   room - radio time display 
+   room - radio time display
    ========================================================= */
 
 #log {
