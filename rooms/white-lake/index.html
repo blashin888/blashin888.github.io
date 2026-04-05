@@ -48,7 +48,7 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
   const shouldAppear = Math.random() < 0.45;
   if (!shouldAppear) return;
 
-  const variants = ["...", ". . .", "…"];
+  const variants = ". . .";
   const marks = variants[Math.floor(Math.random() * variants.length)];
 
   const el = document.createElement("div");
@@ -56,11 +56,11 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
   el.textContent = marks;
 
   const positions = [
-    { top: "18vh", left: "68vw" },
-    { top: "24vh", left: "74vw" },
-    { top: "32vh", left: "66vw" },
-    { top: "58vh", left: "72vw" },
-    { top: "64vh", left: "18vw" }
+    { top: "38vh", left: "68vw" },
+    { top: "46vh", left: "74vw" },
+    { top: "54vh", left: "66vw" },
+    { top: "62vh", left: "72vw" },
+    { top: "68vh", left: "18vw" }
   ];
   const pos = positions[Math.floor(Math.random() * positions.length)];
 
@@ -68,6 +68,7 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
   el.style.left = pos.left;
   el.style.opacity = "0";
   el.style.color = "inherit";
+  el.style.letterSpacing = "0.2em";
 
   document.body.appendChild(el);
 
