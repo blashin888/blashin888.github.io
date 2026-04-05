@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>white lake — v0id-nul</title>
   <link rel="stylesheet" href="/assets/style.css">
+
+  <style>
+    .presence {
+      position: fixed;
+      pointer-events: none;
+      user-select: none;
+      white-space: pre;
+      opacity: 0;
+      transition: opacity 2200ms ease;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
   <main>
@@ -31,6 +43,50 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
     room: "white-lake"
   })
 }).catch(() => {});
+
+(() => {
+  const shouldAppear = Math.random() < 0.45;
+  if (!shouldAppear) return;
+
+  const variants = ["...", ". . .", "…"];
+  const marks = variants[Math.floor(Math.random() * variants.length)];
+
+  const el = document.createElement("div");
+  el.className = "presence small";
+  el.textContent = marks;
+
+  const positions = [
+    { top: "18vh", left: "68vw" },
+    { top: "24vh", left: "74vw" },
+    { top: "32vh", left: "66vw" },
+    { top: "58vh", left: "72vw" },
+    { top: "64vh", left: "18vw" }
+  ];
+  const pos = positions[Math.floor(Math.random() * positions.length)];
+
+  el.style.top = pos.top;
+  el.style.left = pos.left;
+  el.style.opacity = "0";
+  el.style.color = "inherit";
+
+  document.body.appendChild(el);
+
+  const baseOpacity = 0.18 + Math.random() * 0.16;
+  const visibleFor = 2200 + Math.floor(Math.random() * 2200);
+  const fadeDelay = 400 + Math.floor(Math.random() * 900);
+
+  requestAnimationFrame(() => {
+    el.style.opacity = String(baseOpacity);
+  });
+
+  setTimeout(() => {
+    el.style.opacity = "0";
+  }, fadeDelay + visibleFor);
+
+  setTimeout(() => {
+    el.remove();
+  }, fadeDelay + visibleFor + 2400);
+})();
 </script>
   
 </body>
