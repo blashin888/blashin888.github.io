@@ -48,7 +48,7 @@ fetch("https://voidtrace.quietvoid.workers.dev", {
   const shouldAppear = Math.random() < 0.45;
   if (!shouldAppear) return;
 
-  const variants = ". . .";
+  const marks = ". . .";
   const marks = variants[Math.floor(Math.random() * variants.length)];
 
   const el = document.createElement("div");
