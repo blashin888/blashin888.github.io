@@ -22,10 +22,9 @@ body {
 
 main {
   max-width: 720px;
-  margin: 0 auto;
+  margin: 12vh auto 0;
   padding: 96px 24px 88px;
   line-height: 1.55;
-  margin: 12vh auto 0;  /* ←ここで上方向だけ足す */
 }
 
 /* =========================================================
@@ -94,13 +93,17 @@ pre {
 /* =========================================================
    between - Between - Pink / Blue
    ========================================================= */
+
 .title {
-  font-size: 0.95rem;   /* 少しだけ上げる */
+  font-size: 0.95rem;
   opacity: 0.75;
-  margin-bottom: 1.6rem; /* 呼吸を広げる */
+  margin: 0 0 1.6rem 0;
 }
-main p {
+
+.title + p,
+.title + p + p,
+.title + p + p + p {
   font-size: 1rem;
-  line-height: 2.0;  /* ←ここ重要 */
+  line-height: 2;
   margin: 0 0 0.8rem 0;
 }
