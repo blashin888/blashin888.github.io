@@ -25,6 +25,7 @@ main {
   margin: 0 auto;
   padding: 96px 24px 88px;
   line-height: 1.55;
+  margin: 12vh auto 0;  /* ←ここで上方向だけ足す */
 }
 
 /* =========================================================
@@ -94,10 +95,12 @@ pre {
    between - Between - Pink / Blue
    ========================================================= */
 .title {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-bottom: 1.2rem;
+  font-size: 0.95rem;   /* 少しだけ上げる */
+  opacity: 0.75;
+  margin-bottom: 1.6rem; /* 呼吸を広げる */
 }
 main p {
-  margin: 0 0 0.6rem 0;
+  font-size: 1rem;
+  line-height: 2.0;  /* ←ここ重要 */
+  margin: 0 0 0.8rem 0;
 }
