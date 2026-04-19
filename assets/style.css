@@ -10,6 +10,15 @@ body {
   color: #c8c8c8;
 }
 
+footer {
+  margin-top: 4rem;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
 /* =========================================================
    BASE
    Site-wide defaults shared across pages
