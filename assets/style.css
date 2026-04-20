@@ -4,37 +4,36 @@
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   background: #000;
   color: #c8c8c8;
 }
 
-footer {
-  margin-top: 4rem;
-}
-
-.disclaimer {
-  font-size: 0.7rem;
-  opacity: 0.4;
-  margin-left: 0.5rem; 
-}
-
-/* =========================================================
-   BASE
-   Site-wide defaults shared across pages
-   ========================================================= */
-
 body {
+  display: flex;
+  flex-direction: column;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 }
 
 main {
+  flex: 1;
   max-width: 720px;
   margin: 12vh auto 0;
   padding: 96px 24px 88px;
   line-height: 1.55;
+}
+
+footer {
+  margin-top: auto;
+  padding-bottom: 1.5rem;
+}
+
+.disclaimer {
+  font-size: 0.7rem;
+  opacity: 0.4;
+  margin-left: 0.5rem;
 }
 
 /* =========================================================
@@ -60,6 +59,8 @@ a:hover {
   opacity: 0.85;
   font-size: 0.95em;
   color: #6e6e6e;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
 }
 
 pre {
@@ -85,11 +86,6 @@ pre {
   margin: 0 0 20px;
   color: #a8a8a8;
   font-size: 0.95em;
-}
-
-.small {
-  margin-bottom: 0.6em;
-  line-height: 1.6; 
 }
 
 /* =========================================================
@@ -122,6 +118,7 @@ pre {
   line-height: 2;
   margin: 0 0 0.8rem 0;
 }
+
 /* =========================================================
    signal - language-layer
    ========================================================= */
