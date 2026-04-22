@@ -110,8 +110,8 @@ last signal: 2026-04-22
   </p>
 </footer>
   
-<audio id="rain-bg" src="/audio/rain-long.wav" loop preload="auto"></audio>
-<audio id="rain-touch" src="/audio/rain-hold.wav" preload="auto"></audio>
+<audio id="rain-bg" src="/assets/audio/rain-long.wav" loop controls></audio>
+<audio id="rain-touch" src="/assets/audio/rain-hold.wav" controls></audio>
 
 <script>
 (() => {
@@ -120,46 +120,38 @@ last signal: 2026-04-22
 
   let bgStarted = false;
 
-  // 最初のタップ/クリックで背景音を開始
   const startBg = async () => {
     if (bgStarted) return;
     bgStarted = true;
 
     try {
-      bg.volume = 1.0; // かなり小さめ
+      bg.volume = 1.0;
       await bg.play();
+      console.log('bg started');
     } catch (e) {
-      console.log('Background audio blocked:', e);
+      console.log('bg blocked', e);
     }
-
-    document.removeEventListener('click', startBg);
-    document.removeEventListener('touchstart', startBg);
   };
 
   document.addEventListener('click', startBg, { once: true });
-  document.addEventListener('touchstart', startBg, { once: true });
 
-  // 触れたときの短い音
   const playTouch = async () => {
     try {
       touch.pause();
       touch.currentTime = 0;
       touch.volume = 1.0;
       await touch.play();
+      console.log('touch played');
     } catch (e) {
-      console.log('Touch audio blocked:', e);
+      console.log('touch blocked', e);
     }
   };
 
-  // signal本文あたりに触れたら鳴る
-  const targets = document.querySelectorAll('p, a');
-
-  targets.forEach(el => {
+  document.querySelectorAll('p, a').forEach(el => {
     el.addEventListener('mouseenter', playTouch);
-    el.addEventListener('touchstart', playTouch, { passive: true });
+    el.addEventListener('click', playTouch);
   });
 })();
-</script> 
-  
+</script>  
 </body>
 </html>
