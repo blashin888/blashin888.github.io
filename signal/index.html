@@ -125,7 +125,7 @@ last signal: 2026-04-22
     bgStarted = true;
 
     try {
-      bg.volume = 1.0;
+      bg.volume = 0.4;
       await bg.play();
       console.log('bg started');
     } catch (e) {
@@ -139,7 +139,7 @@ last signal: 2026-04-22
     try {
       touch.pause();
       touch.currentTime = 0;
-      touch.volume = 1.0;
+      touch.volume = 0.35;
       await touch.play();
       console.log('touch played');
     } catch (e) {
