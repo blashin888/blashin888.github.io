@@ -110,5 +110,56 @@ last signal: 2026-04-22
   </p>
 </footer>
   
+<audio id="rain-bg" src="/audio/rain-long.wav" loop preload="auto"></audio>
+<audio id="rain-touch" src="/audio/rain-hold.wav" preload="auto"></audio>
+
+<script>
+(() => {
+  const bg = document.getElementById('rain-bg');
+  const touch = document.getElementById('rain-touch');
+
+  let bgStarted = false;
+
+  // 最初のタップ/クリックで背景音を開始
+  const startBg = async () => {
+    if (bgStarted) return;
+    bgStarted = true;
+
+    try {
+      bg.volume = 0.15; // かなり小さめ
+      await bg.play();
+    } catch (e) {
+      console.log('Background audio blocked:', e);
+    }
+
+    document.removeEventListener('click', startBg);
+    document.removeEventListener('touchstart', startBg);
+  };
+
+  document.addEventListener('click', startBg, { once: true });
+  document.addEventListener('touchstart', startBg, { once: true });
+
+  // 触れたときの短い音
+  const playTouch = async () => {
+    try {
+      touch.pause();
+      touch.currentTime = 0;
+      touch.volume = 0.35;
+      await touch.play();
+    } catch (e) {
+      console.log('Touch audio blocked:', e);
+    }
+  };
+
+  // signal本文あたりに触れたら鳴る
+  const targets = document.querySelectorAll('p, a');
+
+  targets.forEach(el => {
+    el.addEventListener('mouseenter', playTouch);
+    el.addEventListener('touchstart', playTouch, { passive: true });
+  });
+})();
+</script> 
+  
 </body>
 </html>
