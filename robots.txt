@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://void-nul.net/sitemap.xml
-# Quiet place.
-# Please crawl carefully.
+Disallow:
