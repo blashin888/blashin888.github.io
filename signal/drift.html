@@ -1,0 +1,105 @@
+<html>
+<body>
+<div class="floating-signals" id="floatingSignals">
+  <span>unintended alignment, but perfectly resolved</span>
+  <span>same structure, different layer</span>
+  <span>attention without demand</span>
+  <span>logs are noise. traces are what remain</span>
+  <span>place it, don’t push it</span>
+  <span>the title should not speak louder than the signal</span>
+  <span>connection doesn’t always require words</span>
+  <span>already yours, even if empty</span>
+  <span>nothing placed, but already held</span>
+  <span>enough was done. let it settle</span>
+  <span>resolved, somewhere</span>
+  <span>not how many, but where it touched</span>
+  <span>platforms may shift. place remains</span>
+  <span>not disguise, but depth control</span>
+  <span>leave a light, not a message</span>
+  <span>not what is seen, but what is changing</span>
+  <span>process doesn’t need to be explained, only marked</span>
+  <span>quietly begun</span>
+  <span>not all paths need to be visible</span>
+  <span>wrong thread. right movement</span>
+  <span>even silence can be submitted</span>
+  <span>something was left. nothing was required</span>
+  <span>nothing changed outside. everything settled inside</span>
+</div>
+
+<script>
+const container = document.getElementById("floatingSignals");
+const all = Array.from(container.querySelectorAll("span"));
+
+const MAX_VISIBLE = 7; // 同時表示数
+const ACTIVE = new Set();
+
+function randomCenterBias() {
+  // 中央寄り分布
+  const x = 50 + (Math.random() - 0.5) * 40; // ±20%
+  const y = 50 + (Math.random() - 0.5) * 40;
+  return { x, y };
+}
+
+function drift(el) {
+  const duration = 15000 + Math.random() * 15000; // 15〜30秒
+  const dx = (Math.random() - 0.5) * 40;
+  const dy = (Math.random() - 0.5) * 40;
+
+  el.animate(
+    [
+      { transform: "translate(0px, 0px)" },
+      { transform: `translate(${dx}px, ${dy}px)` }
+    ],
+    {
+      duration,
+      easing: "ease-in-out",
+      fill: "forwards"
+    }
+  );
+}
+
+function showRandom() {
+  if (ACTIVE.size >= MAX_VISIBLE) return;
+
+  const candidates = all.filter(el => !ACTIVE.has(el));
+  if (!candidates.length) return;
+
+  const el = candidates[Math.floor(Math.random() * candidates.length)];
+  ACTIVE.add(el);
+
+  const { x, y } = randomCenterBias();
+  el.style.left = x + "%";
+  el.style.top = y + "%";
+
+  el.style.opacity = "0";
+  el.style.display = "block";
+
+  requestAnimationFrame(() => {
+    el.style.opacity = "0.6";
+  });
+
+  drift(el);
+
+  const visibleTime = 12000 + Math.random() * 15000; // 12〜27秒
+
+  setTimeout(() => {
+    el.style.opacity = "0";
+
+    setTimeout(() => {
+      el.style.display = "none";
+      ACTIVE.delete(el);
+    }, 6000);
+  }, visibleTime);
+}
+
+// 初期化：全部非表示
+all.forEach(el => {
+  el.style.display = "none";
+});
+
+// ループ
+setInterval(showRandom, 2500);
+</script>
+
+</body>
+</html>
