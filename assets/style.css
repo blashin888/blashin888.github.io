@@ -194,7 +194,7 @@ pre {
   bottom: 20px;
   left: 20px;
   font-size: 9px;
-  opacity: 0.03;
+  opacity: 0.6;
   color: rgba(255,255,255,0.15);
   pointer-events: none;
 }
