@@ -38,10 +38,12 @@ function drift(el) {
   const dx = (Math.random() - 0.5) * 40;
   const dy = (Math.random() - 0.5) * 40;
 
+  const current = el.style.transform || "";
+
   el.animate(
     [
-      { transform: "translate(0px, 0px)" },
-      { transform: `translate(${dx}px, ${dy}px)` }
+      { transform: `${current} translate(0px, 0px)` },
+      { transform: `${current} translate(${dx}px, ${dy}px)` }
     ],
     {
       duration,
@@ -62,7 +64,8 @@ function showRandom() {
 
   const isCenter = Math.random() < 0.2; // 20%だけ中央寄り
   const isStrong = Math.random() < (isCenter ? 0.08 : 0.03); // 中央なら少しだけ強くなりやすい
-
+  const isPersistent = Math.random() < 0.02; // 2%だけ残る
+  
   let x, y;
 
   if (isCenter) {
@@ -75,6 +78,8 @@ function showRandom() {
 
   el.style.left = x + "%";
   el.style.top = y + "%";
+  const rotate = (Math.random() - 0.5) * 2; // -1〜+1度
+  el.style.transform = `rotate(${rotate}deg)`;
 
   if (isStrong) {
     el.style.fontSize = (12 + Math.random() * 3) + "px";
@@ -95,8 +100,9 @@ function showRandom() {
 
   drift(el);
 
-  const visibleTime = 12000 + Math.random() * 15000;
+ const visibleTime = 12000 + Math.random() * 15000;
 
+if (!isPersistent) {
   setTimeout(() => {
     el.style.opacity = "0";
 
@@ -106,7 +112,7 @@ function showRandom() {
     }, 6000);
   }, visibleTime);
 }
-
+  
 all.forEach(el => {
   el.style.display = "none";
 });
