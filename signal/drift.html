@@ -72,7 +72,8 @@ function showRandom() {
   // -------------------------
 
   const isCenter = Math.random() < 0.2; // 20%だけ中央寄り
-
+  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03);
+  
   let x, y;
 
   if (isCenter) {
@@ -92,16 +93,16 @@ function showRandom() {
   // ② 個体差（サイズ・濃さ）
   // -------------------------
 
-  const isStrong = Math.random() < 0.1; // 10%だけ強い
+  const isStrong = Math.random() < 0.05; // 5%だけ強い
 
   if (isStrong) {
-    el.style.fontSize = (14 + Math.random() * 4) + "px";
+    el.style.fontSize = (12 + Math.random() * 3) + "px";
   } else {
     el.style.fontSize = (10 + Math.random() * 4) + "px";
   }
 
   const opacity = isStrong
-    ? 0.5 + Math.random() * 0.2
+    ? 0.35 + Math.random() * 0.15
     : 0.2 + Math.random() * 0.25;
 
   // -------------------------
