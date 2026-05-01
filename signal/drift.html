@@ -67,26 +67,55 @@ function showRandom() {
   const el = candidates[Math.floor(Math.random() * candidates.length)];
   ACTIVE.add(el);
 
-  const { x, y } = randomCenterBias();
+  // -------------------------
+  // ① 出現位置の揺らぎ
+  // -------------------------
+
+  const isCenter = Math.random() < 0.2; // 20%だけ中央寄り
+
+  let x, y;
+
+  if (isCenter) {
+    // 中央寄り
+    x = 50 + (Math.random() - 0.5) * 20; // ±10%
+    y = 50 + (Math.random() - 0.5) * 20;
+  } else {
+    // 広め
+    x = 50 + (Math.random() - 0.5) * 60; // ±30%
+    y = 50 + (Math.random() - 0.5) * 60;
+  }
+
   el.style.left = x + "%";
   el.style.top = y + "%";
-  
-  // 追加
-  el.style.fontSize = (12 + Math.random() * 4) + "px";
-  const opacity = Math.random() < 0.1
-  ? 0.6
-  : 0.25 + Math.random() * 0.25;
-  
+
+  // -------------------------
+  // ② 個体差（サイズ・濃さ）
+  // -------------------------
+
+  const isStrong = Math.random() < 0.1; // 10%だけ強い
+
+  if (isStrong) {
+    el.style.fontSize = (14 + Math.random() * 4) + "px";
+  } else {
+    el.style.fontSize = (10 + Math.random() * 4) + "px";
+  }
+
+  const opacity = isStrong
+    ? 0.5 + Math.random() * 0.2
+    : 0.2 + Math.random() * 0.25;
+
+  // -------------------------
+
   el.style.opacity = "0";
   el.style.display = "block";
 
   requestAnimationFrame(() => {
-    el.style.opacity = opacity; //"0.6"
+    el.style.opacity = opacity;
   });
 
   drift(el);
 
-  const visibleTime = 12000 + Math.random() * 15000; // 12〜27秒
+  const visibleTime = 12000 + Math.random() * 15000;
 
   setTimeout(() => {
     el.style.opacity = "0";
