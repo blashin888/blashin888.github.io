@@ -25,25 +25,26 @@
   <span>something was left. nothing was required</span>
   <span>nothing changed outside. everything settled inside</span>
 </div>
-
+  
 <script>
 const container = document.getElementById("floatingSignals");
 const all = Array.from(container.querySelectorAll("span"));
 
 const MAX_VISIBLE = 7;
+const MAX_PERSISTENT = 2;
 const ACTIVE = new Set();
+const PERSISTENT = new Set();
 
 function drift(el) {
   const duration = 15000 + Math.random() * 15000;
   const dx = (Math.random() - 0.5) * 40;
   const dy = (Math.random() - 0.5) * 40;
-
-  const current = el.style.transform || "";
+  const rotate = el.dataset.rotate || "0";
 
   el.animate(
     [
-      { transform: `${current} translate(0px, 0px)` },
-      { transform: `${current} translate(${dx}px, ${dy}px)` }
+      { transform: `rotate(${rotate}deg) translate(0px, 0px)` },
+      { transform: `rotate(${rotate}deg) translate(${dx}px, ${dy}px)` }
     ],
     {
       duration,
@@ -62,25 +63,29 @@ function showRandom() {
   const el = candidates[Math.floor(Math.random() * candidates.length)];
   ACTIVE.add(el);
 
-  const isCenter = Math.random() < 0.2; // 20%だけ中央寄り
-  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03); // 中央なら少しだけ強くなりやすい
-  const isPersistent = Math.random() < 0.02; // 2%だけ残る
-  
+  // 前回の動きをリセット
+  el.getAnimations().forEach(animation => animation.cancel());
+
+  const isCenter = Math.random() < 0.2;
+  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03);
+  const isPersistent =
+    PERSISTENT.size < MAX_PERSISTENT && Math.random() < 0.02;
+
   let x, y;
 
   if (isCenter) {
-    x = 50 + (Math.random() - 0.5) * 20; // ±10%
+    x = 50 + (Math.random() - 0.5) * 20;
     y = 50 + (Math.random() - 0.5) * 20;
   } else {
-    x = 50 + (Math.random() - 0.5) * 60; // ±30%
+    x = 50 + (Math.random() - 0.5) * 60;
     y = 50 + (Math.random() - 0.5) * 60;
   }
 
   el.style.left = x + "%";
   el.style.top = y + "%";
-  
-  const rotate = (Math.random() - 0.5) * 2; // -1〜+1度
-  el.style.transform = `rotate(${rotate}deg)`;
+
+  const rotate = (Math.random() - 0.5) * 2;
+  el.dataset.rotate = rotate;
 
   if (isStrong) {
     el.style.fontSize = (12 + Math.random() * 3) + "px";
@@ -101,9 +106,13 @@ function showRandom() {
 
   drift(el);
 
- const visibleTime = 12000 + Math.random() * 15000;
+  if (isPersistent) {
+    PERSISTENT.add(el);
+    return;
+  }
 
-if (!isPersistent) {
+  const visibleTime = 12000 + Math.random() * 15000;
+
   setTimeout(() => {
     el.style.opacity = "0";
 
@@ -113,7 +122,7 @@ if (!isPersistent) {
     }, 6000);
   }, visibleTime);
 }
-  
+
 all.forEach(el => {
   el.style.display = "none";
 });
