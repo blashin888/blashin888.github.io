@@ -78,6 +78,7 @@ function showRandom() {
 
   el.style.left = x + "%";
   el.style.top = y + "%";
+  
   const rotate = (Math.random() - 0.5) * 2; // -1〜+1度
   el.style.transform = `rotate(${rotate}deg)`;
 
@@ -102,7 +103,7 @@ function showRandom() {
 
  const visibleTime = 12000 + Math.random() * 15000;
 
-if (isPersistent) {
+if (!isPersistent) {
   setTimeout(() => {
     el.style.opacity = "0";
 
