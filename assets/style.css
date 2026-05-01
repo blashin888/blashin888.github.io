@@ -181,6 +181,6 @@ pre {
   height: 1px;
   background: rgba(255,255,255,0.05);
   transform: rotate(-2deg);
-  opacity: 0.4;
+  opacity: 0.05;
   pointer-events: auto;
 }
