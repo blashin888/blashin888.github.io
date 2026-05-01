@@ -184,3 +184,15 @@ pre {
   opacity: 0.05;
   pointer-events: auto;
 }
+
+/* =========================================================
+   drift - note
+   ========================================================= */
+.drift-note {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 10px;
+  opacity: 0.15;
+  pointer-events: none;
+}
