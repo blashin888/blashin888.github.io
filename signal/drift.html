@@ -30,18 +30,11 @@
 const container = document.getElementById("floatingSignals");
 const all = Array.from(container.querySelectorAll("span"));
 
-const MAX_VISIBLE = 7; // 同時表示数
+const MAX_VISIBLE = 7;
 const ACTIVE = new Set();
 
-function randomCenterBias() {
-  // 中央寄り分布
-  const x = 50 + (Math.random() - 0.5) * 40; // ±20%
-  const y = 50 + (Math.random() - 0.5) * 40;
-  return { x, y };
-}
-
 function drift(el) {
-  const duration = 15000 + Math.random() * 15000; // 15〜30秒
+  const duration = 15000 + Math.random() * 15000;
   const dx = (Math.random() - 0.5) * 40;
   const dy = (Math.random() - 0.5) * 40;
 
@@ -67,33 +60,21 @@ function showRandom() {
   const el = candidates[Math.floor(Math.random() * candidates.length)];
   ACTIVE.add(el);
 
-  // -------------------------
-  // ① 出現位置の揺らぎ
-  // -------------------------
-
   const isCenter = Math.random() < 0.2; // 20%だけ中央寄り
-  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03);
-  
+  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03); // 中央なら少しだけ強くなりやすい
+
   let x, y;
 
   if (isCenter) {
-    // 中央寄り
     x = 50 + (Math.random() - 0.5) * 20; // ±10%
     y = 50 + (Math.random() - 0.5) * 20;
   } else {
-    // 広め
     x = 50 + (Math.random() - 0.5) * 60; // ±30%
     y = 50 + (Math.random() - 0.5) * 60;
   }
 
   el.style.left = x + "%";
   el.style.top = y + "%";
-
-  // -------------------------
-  // ② 個体差（サイズ・濃さ）
-  // -------------------------
-
-  const isStrong = Math.random() < 0.05; // 5%だけ強い
 
   if (isStrong) {
     el.style.fontSize = (12 + Math.random() * 3) + "px";
@@ -104,8 +85,6 @@ function showRandom() {
   const opacity = isStrong
     ? 0.35 + Math.random() * 0.15
     : 0.2 + Math.random() * 0.25;
-
-  // -------------------------
 
   el.style.opacity = "0";
   el.style.display = "block";
@@ -128,12 +107,10 @@ function showRandom() {
   }, visibleTime);
 }
 
-// 初期化：全部非表示
 all.forEach(el => {
   el.style.display = "none";
 });
 
-// ループ
 setInterval(showRandom, 2500);
 </script>
 
