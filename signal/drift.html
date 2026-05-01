@@ -35,8 +35,8 @@ const ACTIVE = new Set();
 
 function randomCenterBias() {
   // 中央寄り分布
-  const x = 50 + (Math.random() - 0.5) * 40; // ±20%
-  const y = 50 + (Math.random() - 0.5) * 40;
+  const x = 50 + (Math.random() - 0.5) * 30; // ±20%
+  const y = 50 + (Math.random() - 0.5) * 30;
   return { x, y };
 }
 
@@ -70,7 +70,11 @@ function showRandom() {
   const { x, y } = randomCenterBias();
   el.style.left = x + "%";
   el.style.top = y + "%";
-
+  
+  // 追加
+  el.style.fontSize = (12 + Math.random() * 4) + "px";
+  const opacity = 0.3 + Math.random() * 0.3;
+  
   el.style.opacity = "0";
   el.style.display = "block";
 
