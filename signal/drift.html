@@ -1,4 +1,73 @@
 <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #0a0a0a;
+      color: #cfcfcf;
+      overflow: hidden;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .floating-signals {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.035), transparent 35%),
+        #0a0a0a;
+    }
+
+    .floating-signals span {
+      position: absolute;
+      display: none;
+      max-width: 72vw;
+      color: rgba(220, 220, 220, 0.72);
+      font-size: 11px;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      white-space: normal;
+      text-align: left;
+      transition: opacity 6s ease;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .flow-line {
+      position: fixed;
+      left: 50%;
+      bottom: 8vh;
+      width: 1.8rem;
+      height: 1px;
+      transform: translateX(-50%);
+      background: rgba(220, 220, 220, 0.28);
+      opacity: 0.45;
+      text-decoration: none;
+    }
+
+    .flow-line:hover {
+      opacity: 0.8;
+      background: rgba(240, 240, 240, 0.45);
+    }
+
+    @media (max-width: 640px) {
+      .floating-signals span {
+        max-width: 82vw;
+        font-size: 10px;
+        line-height: 1.8;
+        color: rgba(220, 220, 220, 0.62);
+      }
+
+      .flow-line {
+        bottom: 7vh;
+        opacity: 0.38;
+      }
+    }
+  </style>
+</head>
 <body>
 <div class="floating-signals" id="floatingSignals">
   <span>unintended alignment, but perfectly resolved</span>
