@@ -142,7 +142,8 @@ function showRandom() {
   el.getAnimations().forEach(animation => animation.cancel());
 
   const isCenter = Math.random() < 0.2;
-  const isStrong = Math.random() < (isCenter ? 0.08 : 0.03);
+  const isAnchor = el.classList.contains("anchor-signal");
+  const isStrong = isAnchor || Math.random() < (isCenter ? 0.08 : 0.03);
   const isPersistent =
     PERSISTENT.size < MAX_PERSISTENT && Math.random() < 0.02;
 
