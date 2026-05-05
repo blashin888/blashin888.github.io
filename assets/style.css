@@ -168,6 +168,11 @@ pre {
   white-space: nowrap;
   transition: opacity 5s ease;
 }
+.floating-signals span.anchor-signal {
+  color: rgba(235, 235, 235, 0.55);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
 
 /* =========================================================
    flowline
