@@ -36,6 +36,35 @@ footer {
   margin-left: 0.5rem;
 }
 
+.void-footer-icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+  margin: 0.9rem 0 0.6rem 0.5rem;
+  opacity: 0.16;
+  filter: grayscale(1);
+  animation: voidIconState 42s ease-in-out infinite;
+}
+
+.void-footer-icon:hover {
+  opacity: 0.28;
+}
+
+@keyframes voidIconState {
+  0% {
+    opacity: 0.12;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateX(1px);
+  }
+  100% {
+    opacity: 0.12;
+    transform: translateX(0);
+  }
+}
+
 /* =========================================================
    LINKS
    ========================================================= */
