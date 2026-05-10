@@ -84,10 +84,17 @@ footer {
 .void-footer-icon.shelf {
   transform: translateX(0);
 }
+
 @keyframes voidIconState {
   0%   { opacity: 0.12; transform: translate(0, 0); }
   50%  { opacity: 0.2;  transform: translate(1px, -1px); }
   100% { opacity: 0.12; transform: translate(0, 0); }
+}
+
+@keyframes voidIconStateSignal {
+  0%   { opacity: 0.11; transform: translate(0, 0); }
+  50%  { opacity: 0.18; transform: translate(1.5px, -1.5px); }
+  100% { opacity: 0.11; transform: translate(0, 0); }
 }
 
 /* =========================================================
