@@ -73,8 +73,8 @@ footer {
 }
 
 .void-footer-icon.shelf {
-  opacity: 0.13;
-  animation-duration: 72s;
+  animation: none;
+  opacity: 0.1;
 }
 
 .void-footer-icon.rooms:hover {
@@ -85,18 +85,9 @@ footer {
   transform: translateX(0);
 }
 @keyframes voidIconState {
-  0% {
-    opacity: 0.12;
-    transform: translateX(0);
-  }
-  50% {
-    opacity: 0.22;
-    transform: translateY(1px);
-  }
-  100% {
-    opacity: 0.12;
-    transform: translateX(0);
-  }
+  0%   { opacity: 0.12; transform: translate(0, 0); }
+  50%  { opacity: 0.2;  transform: translate(1px, -1px); }
+  100% { opacity: 0.12; transform: translate(0, 0); }
 }
 
 /* =========================================================
