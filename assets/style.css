@@ -41,13 +41,13 @@ footer {
   height: 42px;
   display: block;
   margin: 0.9rem 0 0.6rem 0.5rem;
-  opacity: 0.16;
+  opacity: 0.14;
   filter: grayscale(1);
   animation: voidIconState 42s ease-in-out infinite;
 }
 
 .void-footer-icon:hover {
-  opacity: 0.28;
+  opacity: 0.32;
 }
 
 @keyframes voidIconState {
@@ -56,8 +56,8 @@ footer {
     transform: translateX(0);
   }
   50% {
-    opacity: 0.2;
-    transform: translateX(1px);
+    opacity: 0.22;
+    transform: translateY(1px);
   }
   100% {
     opacity: 0.12;
