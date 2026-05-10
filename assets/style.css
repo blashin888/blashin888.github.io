@@ -50,6 +50,40 @@ footer {
   opacity: 0.32;
 }
 
+/* page-specific breathing */
+
+.void-footer-icon.signal {
+  opacity: 0.18;
+  animation-duration: 38s;
+}
+
+.void-footer-icon.voyage {
+  opacity: 0.12;
+  animation-duration: 54s;
+}
+
+.void-footer-icon.log {
+  opacity: 0.14;
+  animation-duration: 64s;
+}
+
+.void-footer-icon.rooms {
+  opacity: 0.16;
+  animation-duration: 46s;
+}
+
+.void-footer-icon.shelf {
+  opacity: 0.13;
+  animation-duration: 72s;
+}
+
+.void-footer-icon.rooms:hover {
+  opacity: 0.34;
+}
+
+.void-footer-icon.shelf {
+  transform: translateX(0);
+}
 @keyframes voidIconState {
   0% {
     opacity: 0.12;
