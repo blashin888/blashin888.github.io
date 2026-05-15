@@ -336,3 +336,12 @@ pre {
 .document .muted {
   opacity: 0.5;
 }
+
+.document .quiet-core {
+  opacity: 0.78;
+}
+
+.document .quiet-core.secondary {
+  opacity: 0.58;
+}
+
