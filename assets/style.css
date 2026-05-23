@@ -367,10 +367,36 @@ pre {
    continuity
    ========================================================= */
 
+.continuity-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  background: #000;
+  color: rgba(255,255,255,0.72);
+  font-family: system-ui, sans-serif;
+}
+
+.continuity-header {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.45;
+  letter-spacing: 0.08em;
+}
+
+.continuity-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .continuity-observation {
   position: relative;
-  width: 100%;
-  max-width: 720px;
+  width: min(88vw, 720px);
+  aspect-ratio: 4 / 5;
   overflow: hidden;
 }
 
@@ -378,26 +404,41 @@ pre {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
 .real {
-  animation: realFade 12s infinite;
+  animation: realFade 14s infinite ease-in-out;
 }
 
 .generated {
-  animation: generatedFade 12s infinite;
+  animation: generatedFade 14s infinite ease-in-out;
 }
 
 @keyframes realFade {
-  0%, 45% { opacity: 1; }
-  50%, 95% { opacity: 0; }
+  0%, 42% { opacity: 1; }
+  50%, 92% { opacity: 0; }
   100% { opacity: 1; }
 }
 
 @keyframes generatedFade {
-  0%, 45% { opacity: 0; }
-  50%, 95% { opacity: 1; }
+  0%, 42% { opacity: 0; }
+  50%, 92% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+.continuity-line {
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  opacity: 0.42;
+  letter-spacing: 0.06em;
+}
+
+.continuity-footer {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 0.75rem;
+  opacity: 0.28;
 }
