@@ -1,21 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: rgba(255,255,255,.7);
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.continuity-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.continuity-observation {
+  position: relative;
+  width: min(88vw, 720px);
+  aspect-ratio: 4 / 5;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.real {
+  animation: realFade 14s infinite ease-in-out;
+}
+
+.generated {
+  animation: generatedFade 14s infinite ease-in-out;
+}
+
+@keyframes realFade {
+  0%,42% { opacity:1; }
+  50%,92% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@keyframes generatedFade {
+  0%,42% { opacity:0; }
+  50%,92% { opacity:1; }
+  100% { opacity:0; }
+}
+
+.continuity-line {
+  margin-top: 2rem;
+  opacity: .45;
+}
+</style>
+</head>
+
+<body>
 <div class="continuity-page">
 
-  <header class="continuity-header">
-    <a href="/signal/">signal</a>
-    <span> / continuity</span>
-  </header>
+<div class="continuity-observation">
+<img src="/assets/img/signal/real-01.jpg" class="layer real">
+<img src="/assets/img/signal/generated-01.jpg" class="layer generated">
+</div>
 
-  <div class="continuity-observation">
-    <img src="/assets/img/signal/real-01.jpg" class="layer real" alt="">
-    <img src="/assets/img/signal/generated-01.jpg" class="layer generated" alt="">
-  </div>
-
-  <p class="continuity-line">
-    observation before enforcement.
-  </p>
-
-  <footer class="continuity-footer">
-    signal / continuity / 01
-  </footer>
+<p class="continuity-line">
+observation before enforcement.
+</p>
 
 </div>
+</body>
+</html>
