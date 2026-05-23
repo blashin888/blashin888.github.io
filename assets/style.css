@@ -362,3 +362,42 @@ pre {
   font-style: italic;
   margin-top: 2rem;
 }
+
+/* =========================================================
+   continuity
+   ========================================================= */
+
+.continuity-observation {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.real {
+  animation: realFade 12s infinite;
+}
+
+.generated {
+  animation: generatedFade 12s infinite;
+}
+
+@keyframes realFade {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes generatedFade {
+  0%, 45% { opacity: 0; }
+  50%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
