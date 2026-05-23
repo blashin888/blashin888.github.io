@@ -357,3 +357,8 @@ pre {
   opacity: 0.58;
 }
 
+.document .quiet-line {
+  opacity: 0.64;
+  font-style: italic;
+  margin-top: 2rem;
+}
