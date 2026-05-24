@@ -153,6 +153,11 @@ pre {
    voyage
    ========================================================= */
 
+.voyage-main {
+  margin: 7vh auto 0;
+  padding: 52px 24px 88px;
+}
+
 .voyage-image {
   display: block;
   width: min(86vw, 680px);
