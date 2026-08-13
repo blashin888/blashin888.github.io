@@ -273,6 +273,12 @@ pre {
   opacity: 0.8;
 }
 
+.provenance-page {
+  max-width: 520px;
+  margin: 12vh auto;
+  padding: 0 24px;
+}
+
 /* =========================================================
    drift - floating-signals
    ========================================================= */
