@@ -253,6 +253,27 @@ pre {
 }
 
 /* =========================================================
+   provenance
+   ========================================================= */
+
+.provenance-link {
+  margin-top: 6px;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.4;
+}
+
+.provenance-link a {
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.2);
+}
+
+.provenance-link a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* =========================================================
    drift - floating-signals
    ========================================================= */
 
