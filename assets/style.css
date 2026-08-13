@@ -462,3 +462,9 @@ pre {
 .return-space {
   height: 100vh;
 }
+
+.room-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
