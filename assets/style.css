@@ -508,3 +508,8 @@ pre {
   width: min(100%, 720px);
   height: auto;
 }
+
+.send-entry {
+  margin-top: 4rem;
+}
+
